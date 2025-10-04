@@ -1,3 +1,9 @@
+# Blog
+
+## Default Markup
+tags: #markup
+
+```html
 <!-- tags: # blog_widget -->
 <b:defaultmarkup type='Blog'>
     <b:includable id='main'>
@@ -76,3 +82,25 @@
 
     </b:includable>
 </b:defaultmarkup>
+```
+
+## Usage Example
+tags: #example
+
+```html
+<template id="Blog">
+    <div b-data="posts" b-template="PostWidget"></div>
+
+    <!-- tags: #pagination, #nav -->
+    <a b-attr-href="olderPageUrl">Older Post</a>
+</template>
+
+<template id="PostWidget">
+    <!-- title -->
+    <h2><a b-attr-href="url" b-data="title"></a></h2>
+    <!-- date -->
+    <span b-data="date"></span>
+    <!-- body -->
+    <div b-data="body"></div>
+</template>
+```
