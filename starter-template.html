@@ -167,25 +167,41 @@
 
     <!-- # layout -->
 
+    <!-- page builder and scripts -->
     <div style='display:flex;'>
-      <div style='background:orange;padding:0.8rem;border-radius:0.2rem'>
-        <b:include name='section_default_template' />
-        <b:include name='section_post_page_template' />
+      <div style='background:coral;display:flex;'>
+        <!-- page templates -->
+        <div style='padding:0.8rem;'>
+          <b:include name='section_default_template'/>
+          <b:include name='section_post_page_template'/>
+        </div>
+        <!-- page builder scripts -->
+        <div style='padding:0.8rem;'>
+          <b:include name='section_builder_scripts'/>
+        </div>
       </div>
-      <div style='padding:0.8rem;background:lightcoral;'>
-        <b:include name='section_builder_scripts' />
+
+      <!-- pre-build assets -->
+      <div style='display:flex;padding:0.8rem;background:lightblue;'>
+      	<b:include name='section_before_scripts'/>
       </div>
-      <div style='padding:0.8rem;'>
-        <b:include name='section_main' />
+      <!-- post-build assets -->
+      <div style='display:flex;padding:0.8rem;background:plum;'>
+      	<b:include name='section_after_scripts'/>
       </div>
     </div>
+    
+    <!-- blog sections -->
     <div style='display:flex;padding:0.8rem;'>
-      <b:include name='section_before_scripts' />
-      <b:include name='section_after_scripts' />
-      <b:include name='section_extra_gadgets' />
     </div>
 
-    <b:else />
+    <!-- roaming blog gadgets -->
+    <div style='display:flex;padding:0.8rem;'>
+      <b:include name='section_main'/>
+      <b:include name='section_extra_gadgets'/>
+    </div>
+
+  <b:else />
 
     <!-- # app -->
 
@@ -228,17 +244,17 @@
       </b:includable>
 
       <b:includable id='section_after_scripts'>
-        <b:section id='After Scripts' />
+        <b:section id='&lt;Post-build Assets&gt;' />
       </b:includable>
 
       <!-- # blog skin -->
       <b:includable id='section_before_scripts'>
-        <b:section id='Before Scripts' />
+        <b:section id='&lt;Pre-build Assets&gt;' />
       </b:includable>
 
       <!-- # template -->
       <b:includable id='section_default_template'>
-        <b:section id='Multi Items Template' showaddelement='no'>
+        <b:section id='&lt;Default View&gt;' showaddelement='no'>
           <b:widget id='HTML1' locked='true' type='HTML' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='content' />
@@ -253,7 +269,7 @@
         </b:section>
       </b:includable>
       <b:includable id='section_post_page_template'>
-        <b:section id='Single Item Template' showaddelement='no'>
+        <b:section id='&lt;Single Item View&gt;' showaddelement='no'>
           <b:widget id='HTML2' locked='true' title='' type='HTML' visible='true'>
             <b:includable id='main'>
               <b:include name='widget-title' />
@@ -271,7 +287,7 @@
       </b:includable>
       <b:includable id='section_builder_scripts'>
 
-        <b:section id='Page Builder Scripts' showaddelement='no'>
+        <b:section id='&lt;Page Builder Scripts&gt;' showaddelement='no'>
           <b:widget id='HTML3' locked='true' title='Builder Script' type='HTML' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='content' />
